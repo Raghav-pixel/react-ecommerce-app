@@ -6,6 +6,10 @@ import Recommended from './Recommended/Recommended';
 import Sidebar from './Sidebar/Sidebar';
 import products from './db/data';
 import Card from './components/Card';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import Home from './Home/Home';
+import Cart from './Cart/Cart';
+import Checkout from './Checkout/Checkout';
 
 function App() {
   const [ selectedCategory, setSelectedCategory ] = useState(null);
@@ -63,12 +67,24 @@ function App() {
   const results = filteredData(products, selectedCategory, query);
 
   return (
-    <>
-      <Sidebar handleChange={handleChange} />
+    <BrowserRouter>
       <Nav query={query} handleInputChange={handleInputChange} />
-      <Recommended handleClick={handleClick} />
-      <Products results={results} />
-    </>
+      <Routes>
+        <Route 
+          path='/' 
+          Component={() =>
+          <Home 
+            handleChange={handleChange} 
+            handleClick={handleClick} 
+            results={results} 
+          />}
+          exact 
+        />
+        <Route path='/cart' Component={Cart} />
+        <Route path='/checkout' Component={Checkout} />
+      </Routes>
+      
+    </BrowserRouter>
   );
 }
 

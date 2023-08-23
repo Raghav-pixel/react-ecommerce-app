@@ -19,16 +19,18 @@ input {
     width: 14rem;
 }
 
+.profile-container {
+    width: 3.8rem;
+    height: 2rem;
+    background-color: rgb(65, 198, 65);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
 .nav-icons {
     width: 1.5rem;
     height: 1.5rem;
-    margin-left: 2rem;
 }
-
-/* .nav-container {
-
-}
-
-.profile-container {
-
-} */

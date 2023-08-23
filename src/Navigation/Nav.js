@@ -1,6 +1,7 @@
 import React from 'react';
 import './Nav.css';
 import { AiOutlineHeart, AiOutlineShoppingCart, AiOutlineUserAdd } from 'react-icons/ai';
+import { BsFillCartFill } from 'react-icons/bs';
 
 const Nav = ({ query, handleInputChange }) => {
   return (
@@ -15,15 +16,17 @@ const Nav = ({ query, handleInputChange }) => {
         />
       </div>
       <div className='profile-container'>
-        <a href='#'>
+        <BsFillCartFill style={{ color: 'white' }} className='nav-icons'/>
+        <span style={{ color: 'white' }}>{3}</span>
+        {/* <a href='/'>
           <AiOutlineHeart className='nav-icons'/>
         </a>
-        <a href='#c'>
+        <a href='/cart'>
           <AiOutlineShoppingCart className='nav-icons'/>
         </a>
-        <a href='#u'>
+        <a href='/'>
           <AiOutlineUserAdd className='nav-icons'/>
-        </a>
+        </a> */}
       </div>
     </nav>
   );
