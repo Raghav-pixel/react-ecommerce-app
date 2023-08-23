@@ -2,7 +2,7 @@ import React from 'react';
 import './Nav.css';
 import { AiOutlineHeart, AiOutlineShoppingCart, AiOutlineUserAdd } from 'react-icons/ai';
 
-const Nav = () => {
+const Nav = ({ query, handleInputChange }) => {
   return (
     <nav>
       <div className='nav-container'>
@@ -10,6 +10,8 @@ const Nav = () => {
           type='text'
           className='search-input'
           placeholder='Enter your search shoes'
+          value={query}
+          onChange={(e) => handleInputChange(e)}
         />
       </div>
       <div className='profile-container'>
