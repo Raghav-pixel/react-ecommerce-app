@@ -3,6 +3,7 @@ import { CartState } from "../context/Context";
 
 const Card = ({ img, title, star, reviews, newPrice, prevPrice }) => {
   const { state : { cart }, dispatch } = CartState();
+
   const handleClick = () => {
     dispatch({
       type: 'ADD_TO_CART',
@@ -10,6 +11,13 @@ const Card = ({ img, title, star, reviews, newPrice, prevPrice }) => {
         img, title, star, reviews, newPrice, prevPrice
       }
     })
+  }
+
+  const handleClickRemove = () => {
+    dispatch({
+      type: 'REMOVE_FROM_CART',
+      payload: { title }
+    });
   }
 
   return (
@@ -31,7 +39,13 @@ const Card = ({ img, title, star, reviews, newPrice, prevPrice }) => {
             </div>
           </section>
           <section className="btn-ctr">
-            <button onClick={handleClick} className="btn">Add to Cart</button>
+            {
+              cart.some((c) => c.title === title) ? (
+                <button onClick={handleClickRemove} className="btn-remove">Remove from Cart</button>
+              ) : (
+                <button onClick={handleClick} className="btn">Add to Cart</button>
+              )
+            }
           </section>
         </div>
       </section>
