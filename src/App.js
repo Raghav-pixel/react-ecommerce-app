@@ -4,14 +4,16 @@ import Nav from './Navigation/Nav';
 import Products from './Products/Products';
 import Recommended from './Recommended/Recommended';
 import Sidebar from './Sidebar/Sidebar';
-import products from './db/data';
+// import products from './db/data';
 import Card from './components/Card';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Home from './Home/Home';
 import Cart from './Cart/Cart';
 import Checkout from './Checkout/Checkout';
+import { CartState } from './context/Context';
 
 function App() {
+  const { state: { products } } = CartState();
   const [ selectedCategory, setSelectedCategory ] = useState(null);
   const [ query, setQuery ] = useState("");
 

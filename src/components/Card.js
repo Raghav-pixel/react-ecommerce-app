@@ -1,6 +1,17 @@
 import { BsFillBagFill } from "react-icons/bs";
+import { CartState } from "../context/Context";
 
 const Card = ({ img, title, star, reviews, newPrice, prevPrice }) => {
+  const { state : { cart }, dispatch } = CartState();
+  const handleClick = () => {
+    dispatch({
+      type: 'ADD_TO_CART',
+      payload: {
+        img, title, star, reviews, newPrice, prevPrice
+      }
+    })
+  }
+
   return (
     <>
       <section className="card">
@@ -18,6 +29,9 @@ const Card = ({ img, title, star, reviews, newPrice, prevPrice }) => {
             <div className="bag">
               <BsFillBagFill className="bag-icon" />
             </div>
+          </section>
+          <section className="btn-ctr">
+            <button onClick={handleClick} className="btn">Add to Cart</button>
           </section>
         </div>
       </section>

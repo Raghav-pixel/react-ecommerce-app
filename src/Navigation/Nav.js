@@ -2,8 +2,11 @@ import React from 'react';
 import './Nav.css';
 import { AiOutlineHeart, AiOutlineShoppingCart, AiOutlineUserAdd } from 'react-icons/ai';
 import { BsFillCartFill } from 'react-icons/bs';
+import { CartState } from '../context/Context';
 
 const Nav = ({ query, handleInputChange }) => {
+  const { state : { cart } } = CartState();
+  console.log(cart)
   return (
     <nav>
       <div className='nav-container'>
@@ -17,7 +20,7 @@ const Nav = ({ query, handleInputChange }) => {
       </div>
       <div className='profile-container'>
         <BsFillCartFill style={{ color: 'white' }} className='nav-icons'/>
-        <span style={{ color: 'white' }}>{3}</span>
+        <span style={{ color: 'white' }}>{cart.length>0 ? cart.length : ''}</span>
         {/* <a href='/'>
           <AiOutlineHeart className='nav-icons'/>
         </a>
