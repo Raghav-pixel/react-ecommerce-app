@@ -15,10 +15,9 @@
     flex-direction: column;
   }
 
-  .card-details {
+  .card-items-details {
     display: flex;
     flex-direction: column;
-    margin-top: auto;
   }
   
   .card > img {

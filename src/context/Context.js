@@ -8,7 +8,9 @@ const Context = ({ children }) => {
 
     const [ state, dispatch ] = useReducer(cartReducer, {
         products: products,
-        cart: []
+        cart: [],
+        totalPrice: 0,
+        discount: 0,
     });
 
     return (

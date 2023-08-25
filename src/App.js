@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import './App.css';
 import Nav from './Navigation/Nav';
 import Products from './Products/Products';
@@ -16,6 +16,8 @@ function App() {
   const { state: { products } } = CartState();
   const [ selectedCategory, setSelectedCategory ] = useState(null);
   const [ query, setQuery ] = useState("");
+
+  const { state: { cart } } = CartState();
 
   const handleInputChange = (e) => {
     setQuery(e.target.value);

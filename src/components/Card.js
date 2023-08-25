@@ -16,7 +16,7 @@ const Card = ({ img, title, star, reviews, newPrice, prevPrice }) => {
   const handleClickRemove = () => {
     dispatch({
       type: 'REMOVE_FROM_CART',
-      payload: { title }
+      payload: { img, title, star, reviews, newPrice, prevPrice }
     });
   }
 

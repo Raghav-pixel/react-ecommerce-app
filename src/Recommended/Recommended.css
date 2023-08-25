@@ -1,6 +1,7 @@
 .recommended-flex {
     display: flex;
     margin-left: 20rem;
+    margin-top: 80px;
   }
   
   .recommended-title {
